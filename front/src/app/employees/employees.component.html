@@ -1,5 +1,5 @@
 <main class="container">
-  <form class="my-4" (ngSubmit)="register()">
+  <form class="my-4" (ngSubmit)="save()">
     <section class="card">
       <div class="card-header">
         <h5 class="card-title">
@@ -17,13 +17,15 @@
           <label for="address" class="form-label">
             Address
           </label>
-          <input type="text" [(ngModel)]="address" name="address" class="form-control" id="address" placeholder="Address"/>
+          <input type="text" [(ngModel)]="address" name="address" class="form-control" id="address"
+                 placeholder="Address"/>
         </div>
         <div class="mb-3">
           <label for="phone" class="form-label">
             Phone number
           </label>
-          <input type="tel" [(ngModel)]="phone" name="phone" class="form-control" id="phone" placeholder="Phone number"/>
+          <input type="tel" [(ngModel)]="phone" name="phone" class="form-control" id="phone"
+                 placeholder="Phone number"/>
         </div>
         <button type="submit" class="btn btn-primary">
           Submit
@@ -52,6 +54,9 @@
         <th scope="col">
           Phone number
         </th>
+        <th>
+          Operations
+        </th>
       </tr>
       </thead>
       <tbody>
@@ -67,6 +72,14 @@
         </td>
         <td>
           {{ employee.phone }}
+        </td>
+        <td>
+          <button class="btn btn-warning" (click)="setUpdate(employee)">
+            Edit
+          </button>
+          <button class="btn btn-danger" (click)="delete(employee.id)">
+            Delete
+          </button>
         </td>
       </tr>
       </tbody>
